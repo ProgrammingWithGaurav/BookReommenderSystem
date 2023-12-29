@@ -25,7 +25,7 @@ async def read_item():
 
 @app.post("/recommend_books")
 async def recommend(user_input: userInput):
-    user_input = user_input['user_input']
+    user_input = user_input.user_input
     # index fetch
     index = np.where(pt.index==user_input)[0][0]
     similar_items = sorted(list(enumerate(similarity_score[index])), key=lambda x:x[1], reverse=True)[1:6]
